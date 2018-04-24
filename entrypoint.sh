@@ -44,5 +44,6 @@ function unseal() {
 }
 
 while [ 1 ]; do
-	main && break || sleep 10
+	main
+  sleep 10
 done
