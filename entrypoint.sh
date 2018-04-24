@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-LOCAL_VAULT_ADDR=${LOCAL_VAULT:-http://vault:8200}
+LOCAL_VAULT_ADDR=${LOCAL_VAULT_ADDR:-http://vault:8200}
 UNSEAL_TOKEN_FIELD=${UNSEAL_TOKEN_FIELD:-token}
 UNSEAL_TOKEN_PATH=${UNSEAL_TOKEN_PATH:-secret/mgmt/unseal}
 LIVE_VAULT_ADDR=${VAULT_ADDR}  # Fail if unset
@@ -18,7 +18,7 @@ function getUnsealKey() {
 }
 
 function isSealed() {
-	curl -s ${LOCAL_VAULT}/v1/sys/health | jq -e '.sealed == true'
+	curl -s ${LOCAL_VAULT_ADDR}/v1/sys/health | jq -e '.sealed == true'
 }
 
 function main() {
