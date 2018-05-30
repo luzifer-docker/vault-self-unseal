@@ -32,6 +32,11 @@ function main() {
 	export VAULT_TOKEN=$(authenticate)
 	UNSEAL_TOKEN=$(getUnsealKey || echo "")
 
+	[ -z "${UNSEAL_TOKEN}"] && {
+		echo "No unseal token found, waiting..."
+		return 0
+	}
+
 	unseal "${UNSEAL_TOKEN}"
 
 	isSealed && {
@@ -47,5 +52,5 @@ function unseal() {
 
 while [ 1 ]; do
 	main
-  sleep 10
+	sleep 10
 done
