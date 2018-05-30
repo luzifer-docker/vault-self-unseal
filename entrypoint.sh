@@ -30,7 +30,7 @@ function main() {
 	}
 
 	export VAULT_TOKEN=$(authenticate)
-	UNSEAL_TOKEN=$(getUnsealKey)
+	UNSEAL_TOKEN=$(getUnsealKey || echo "")
 
 	unseal "${UNSEAL_TOKEN}"
 
