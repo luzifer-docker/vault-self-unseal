@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+[ -f "/config/vault-self-unseal.env" ] && source "/config/vault-self-unseal.env"
+
 LOCAL_VAULT_ADDR=${LOCAL_VAULT_ADDR:-http://vault:8200}
 UNSEAL_TOKEN_FIELD=${UNSEAL_TOKEN_FIELD:-token}
 UNSEAL_TOKEN_PATH=${UNSEAL_TOKEN_PATH:-secret/mgmt/unseal}

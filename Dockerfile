@@ -12,4 +12,5 @@ COPY entrypoint.sh /usr/local/bin/
 
 USER vault
 
+VOLUME ["/config"]
 ENTRYPOINT ["/bin/bash", "/usr/local/bin/entrypoint.sh"]
